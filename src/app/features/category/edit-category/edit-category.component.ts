@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Category } from '../models/category.model';
 import { FormsModule } from '@angular/forms';
+import { response } from 'express';
 
 @Component({
   selector: 'app-edit-category',
@@ -61,6 +62,16 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
 
   };
 
+  deleteItem():void{
+    if(this.id){
+     this.categoryService.deleteCategory(this.id).subscribe({
+      next:(response)=>{
+        console.log('Category deleted successfully...');
+        this.router.navigateByUrl('/admin/categories');
+      }
+     })
+    }
+  }
 
 
   ngOnDestroy(): void {
