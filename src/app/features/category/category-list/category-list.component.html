@@ -7,6 +7,15 @@
         <a [routerLink]="['/admin/categories/add']" class="btn btn-primary">Add Category</a>
     </div>
 
+    <div *ngIf="loading">
+        <div class="spinner-border text-primary" role="status">
+            <span>
+                Loading....
+            </span>
+        </div>
+
+    </div>
+
     <ng-container *ngIf="categories$ | async as categories">
 
         <div class="mt-3">

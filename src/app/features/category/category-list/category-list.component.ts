@@ -17,10 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class CategoryListComponent implements OnInit{
 categories$? : Observable<Category[]>;
+loading?: boolean= true;
 
 constructor(private categoryService: CategoryService){}
   ngOnInit(): void {
    this.categories$ = this.categoryService.getAllCategories();
+   this.loading = false;
   }
 
 }
