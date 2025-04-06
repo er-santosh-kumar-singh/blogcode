@@ -4,11 +4,13 @@ import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideHttpClient } from '@angular/common/http';
+import { provideMarkdown } from 'ngx-markdown';
 
 bootstrapApplication(AppComponent,
   {providers:[
     provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient(),
+    provideMarkdown()
   ]}
   )
   .catch((err) => console.error(err));
