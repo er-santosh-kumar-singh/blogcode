@@ -1,8 +1,8 @@
 <div class="container">
-    <h1 class="mt-3">Add post blog</h1>
+    <h1 class="mt-3">Edit post blog</h1>
+    <div *ngIf="model">
 
-
-    <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+    <form #form="ngForm" (ngSubmit)="onEditBlogPost()">
         <div class="mt-2 mb-5">
             <div class="mt-3">
                 <label for="title" class="form-label">Title</label>
@@ -27,7 +27,7 @@
                     <div class="col-6 p-2">
 
                         <textarea class="form-control" name="content" id="content" [(ngModel)]="model.content"
-                        style="height: 350px; max-height: 350px;">
+                            style="height: 350px; max-height: 350px;">
 
                         </textarea>
 
@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
 
             <div class="mt-3">
@@ -67,7 +67,7 @@
             <div class="mt-3">
                 <label for="category" class="form-label">Category</label>
                 <ng-container *ngIf="getCategory$ | async as categories">
-                <select class="form-control" [(ngModel)]="model.categories" name="categories" multiple>
+                <select class="form-control" [(ngModel)]="selectedCategory" name="categories" multiple>
                     <option *ngFor="let category of categories"
                     [ngValue]="category.id">
                     {{category.name}}
@@ -97,4 +97,5 @@
 
     </form>
 
+</div>
 </div>

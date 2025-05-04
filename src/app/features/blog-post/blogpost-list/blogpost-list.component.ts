@@ -14,6 +14,7 @@ import { ApiResponse } from '../../models/api-Response.model';
 export class BlogpostListComponent implements OnInit {
   model?: BlogPost[];
   apiResponse?: ApiResponse<any>;
+  isLoading: boolean = true;
 
   constructor(private blogPostService: BlogPostService) { }
 
@@ -22,11 +23,12 @@ export class BlogpostListComponent implements OnInit {
       next: (response) => {
         this.apiResponse = response;
         if (response.isSuccess) {
+         this.isLoading =false;
           this.model = this.apiResponse.result as BlogPost[];
 
         }
       },
-      error:(err)=> console.log('Error occured while fetching the blog post details'),
+      error: (err) => console.log('Error occured while fetching the blog post details'),
     });
   }
 
