@@ -7,7 +7,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideMarkdown } from 'ngx-markdown';
 
 bootstrapApplication(AppComponent,
-  {providers:[
+  {
+    providers:[
     provideRouter(routes),
     provideHttpClient(),
     provideMarkdown()
